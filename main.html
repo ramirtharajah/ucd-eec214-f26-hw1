@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Rajeevan Amirtharajah Dept. of Electrical and Computer Engineering University of California, Davis" />
+  <title>EEC 214 Fall 2026 Homework #1</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title"><strong><u>EEC 214 Fall 2026 Homework
+#1</u></strong></h1>
+<p class="author">Rajeevan Amirtharajah<br />
+Dept. of Electrical and Computer Engineering<br />
+University of California, Davis</p>
+<p class="date">Issued: September 24, 2026<br />
+Due: September 29, 2026, 11:59 PM by Canvas upload.</p>
+</header>
+<p>[ps1ans1]</p>
+<h1 id="sec:seriesShunt">Series Versus Shunt Linear Regulators</h1>
+<figure id="fig:seriesLinearReg" data-latex-placement="htp">
+<div class="center">
+<p><img src="./seriesLinearReg.png" style="width:80.0%"
+alt="A schematic diagram of a single-loop series linear regulator circuit consisting of a DC voltage source, an input resistor, a variable resistor, and a load resistor connected in series." /></p>
+</div>
+<figcaption>Series linear regulator equivalent circuit
+model.</figcaption>
+</figure>
+<div id="sec:seriesShunt1" class="prob">
+<p><strong>Problem 1</strong>. <em></em></p>
+<p><em><em>Suppose a series linear regulator system can be modeled using
+the equivalent circuit shown in Figure <a href="#fig:seriesLinearReg"
+data-reference-type="ref" data-reference="fig:seriesLinearReg">1</a>.
+Given the following specifications for a lithium-ion battery-operated
+system:</em></em></p>
+<ul>
+<li><p><em><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>I</mi><mi>N</mi></mrow></msub><mo>=</mo><mn>4.1</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">V</mtext></mrow><annotation encoding="application/x-tex">V_{IN}  = 4.1\ \textrm{V}</annotation></semantics></math></em></p></li>
+<li><p><em><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mrow><mi>I</mi><mi>N</mi></mrow></msub><mo>=</mo><mn>100</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">m</mtext><mi mathvariant="normal">Ω</mi></mrow><annotation encoding="application/x-tex">R_{IN}  = 100\ \textrm{m}\Omega</annotation></semantics></math></em></p></li>
+<li><p><em><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>O</mi><mi>U</mi><mi>T</mi></mrow></msub><mo>=</mo><mn>1.8</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">V</mtext></mrow><annotation encoding="application/x-tex">V_{OUT} = 1.8\ \textrm{V}</annotation></semantics></math></em></p></li>
+<li><p><em><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mi>L</mi></msub><mo>=</mo><mn>18</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">Ω</mi></mrow><annotation encoding="application/x-tex">R_{L}   = 18\ \Omega</annotation></semantics></math></em></p></li>
+</ul>
+<ol>
+<li><p><em>Derive formulas for the regulator variable resistance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mi>V</mi></msub><annotation encoding="application/x-tex">R_{V}</annotation></semantics></math>
+and the regulator power efficiency
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>η</mi><annotation encoding="application/x-tex">\eta</annotation></semantics></math>
+in terms of the input and output voltages and resistances.</em></p></li>
+<li><p><em>Calculate the required value for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mi>V</mi></msub><annotation encoding="application/x-tex">R_{V}</annotation></semantics></math>
+and the subsequent regulator power efficiency
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>η</mi><annotation encoding="application/x-tex">\eta</annotation></semantics></math>
+for the values given above.</em></p></li>
+</ol>
+<div class="sol">
+
+</div>
+</div>
+<figure id="fig:shuntLinearReg" data-latex-placement="htp">
+<div class="center">
+<p><img src="./shuntLinearReg.png" style="width:80.0%"
+alt="A schematic diagram of a shunt linear regulator circuit consisting of a DC voltage source, a series input resistor, an adjustable shunt (parallel) variable resistor, and a load resistor." /></p>
+</div>
+<figcaption>Shunt linear regulator equivalent circuit
+model.</figcaption>
+</figure>
+<div id="sec:seriesShunt2" class="prob">
+<p><strong>Problem 2</strong>. <em></em></p>
+<p><em><em>Suppose a series linear regulator system can be modeled using
+the equivalent circuit shown in Figure <a href="#fig:shuntLinearReg"
+data-reference-type="ref"
+data-reference="fig:shuntLinearReg">2</a>.</em></em></p>
+<ol>
+<li><p><em>Given the same parameters as for the series regulator, derive
+formulas for the shunt regulator variable resistance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mi>V</mi></msub><annotation encoding="application/x-tex">R_{V}</annotation></semantics></math>
+and the regulator power efficiency
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>η</mi><annotation encoding="application/x-tex">\eta</annotation></semantics></math>
+in terms of the input and output voltages and resistances.</em></p></li>
+<li><p><em>Calculate the required value for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mi>V</mi></msub><annotation encoding="application/x-tex">R_{V}</annotation></semantics></math>
+and the subsequent shunt regulator power efficiency
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>η</mi><annotation encoding="application/x-tex">\eta</annotation></semantics></math>
+for the values given above.</em></p></li>
+</ol>
+<div class="sol">
+
+</div>
+</div>
+<div id="sec:seriesShunt3" class="prob">
+<p><strong>Problem 3</strong>. <em><span><em>Is the efficiency of the
+shunt regulator higher or lower than the series regulator? Justify your
+answer.</em></span></em></p>
+<div class="sol">
+
+</div>
+</div>
+<p>[ps1ans2]</p>
+<h1 id="sec:idealDCDCmodel">Idealized DC-DC Converter Models</h1>
+<figure id="fig:idealTransformerDCDCmodel" data-latex-placement="htp">
+<div class="center">
+<p><img src="./idealTransformerDCDCmodel.png" style="width:60.0%"
+alt="A schematic diagram representing an equivalent circuit model of a DC-DC converter using an ideal DC transformer, turns ratio N1:N2, an input (primarys-side) quiescent current source, and an output (secondary-side) loss resistance." /></p>
+</div>
+<figcaption>Ideal transformer equivalent circuit model for a DC-DC
+converter.</figcaption>
+</figure>
+<div id="sec:idealDCDCmodel1" class="prob">
+<p><strong>Problem 4</strong>. <em></em></p>
+<p><em><em>Consider the equivalent circuit model for a DC-DC converter
+shown in Figure <a href="#fig:idealTransformerDCDCmodel"
+data-reference-type="ref"
+data-reference="fig:idealTransformerDCDCmodel">3</a>. Assume the
+transformer is ideal (works down to DC) with a turns ratio
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mn>1</mn></msub><mtext mathvariant="normal">:</mtext><msub><mi>N</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">N_{1}\textrm{:}N_{2}</annotation></semantics></math>
+such that the output voltage is the desired value under zero-load (open
+circuit) conditions. The <span><em>quiescent current</em></span>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>I</mi><mi>Q</mi></msub><annotation encoding="application/x-tex">I_{Q}</annotation></semantics></math>
+represents the converter’s current draw from the input source under
+zero-load conditions. Model the input as an ideal voltage source with
+voltage
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mrow><mi>I</mi><mi>N</mi></mrow></msub><annotation encoding="application/x-tex">V_{IN}</annotation></semantics></math>
+and the load at the output as an ideal current source with value
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>I</mi><mi>L</mi></msub><annotation encoding="application/x-tex">I_{L}</annotation></semantics></math>.
+Given the following specifications for a battery-operated
+microcontroller system:</em></em></p>
+<ul>
+<li><p><em><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>I</mi><mi>N</mi></mrow></msub><mo>=</mo><mn>3.3</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">V</mtext></mrow><annotation encoding="application/x-tex">V_{IN}  = 3.3\ \textrm{V}</annotation></semantics></math></em></p></li>
+<li><p><em><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>O</mi><mi>U</mi><mi>T</mi></mrow></msub><mo>=</mo><mn>1.8</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">V</mtext></mrow><annotation encoding="application/x-tex">V_{OUT} = 1.8\ \textrm{V}</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>L</mi></msub><mo>=</mo><mn>0</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">A</mtext></mrow><annotation encoding="application/x-tex">I_{L} = 0\ \textrm{A}</annotation></semantics></math></em></p></li>
+<li><p><em><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mtext mathvariant="normal">DC-DC</mtext></msub><mo>=</mo><mn>0.3</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">Ω</mi></mrow><annotation encoding="application/x-tex">R_{\textrm{DC-DC}}   = 0.3\ \Omega</annotation></semantics></math></em></p></li>
+<li><p><em>Minimum load current
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>L</mi></msub><mo>=</mo><mn>0.5</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">mA</mtext></mrow><annotation encoding="application/x-tex">I_{L} = 0.5\ \textrm{mA}</annotation></semantics></math></em></p></li>
+<li><p><em>Maximum load current
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>L</mi></msub><mo>=</mo><mn>600</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">mA</mtext></mrow><annotation encoding="application/x-tex">I_{L} = 600\ \textrm{mA}</annotation></semantics></math></em></p></li>
+</ul>
+<ol>
+<li><p><em>Suppose the quiescent current
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>Q</mi></msub><mo>=</mo><mn>0</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">A</mtext></mrow><annotation encoding="application/x-tex">I_{Q} = 0\ \textrm{A}</annotation></semantics></math>.
+Derive formulas for the output power and efficiency in terms of the load
+current
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>I</mi><mi>L</mi></msub><annotation encoding="application/x-tex">I_{L}</annotation></semantics></math>
+and the other circuit variables.</em></p></li>
+<li><p><em>Using the formula you derived for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>η</mi><annotation encoding="application/x-tex">\eta</annotation></semantics></math>,
+plot the efficiency as a function of load current over the given load
+current range for the circuit parameters given above.</em></p></li>
+</ol>
+<div class="sol">
+
+</div>
+</div>
+<div id="sec:idealDCDCmodel2" class="prob">
+<p><strong>Problem 5</strong>. <em></em></p>
+<p><em><em>Consider the equivalent circuit model for a DC-DC converter
+shown in Figure <a href="#fig:idealTransformerDCDCmodel"
+data-reference-type="ref"
+data-reference="fig:idealTransformerDCDCmodel">3</a>. Assume the
+transformer is ideal (works down to DC) with a turns ratio
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mn>1</mn></msub><mtext mathvariant="normal">:</mtext><msub><mi>N</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">N_{1}\textrm{:}N_{2}</annotation></semantics></math>
+such that the output voltage is the desired value under zero-load (open
+circuit) conditions. The <span><em>quiescent current</em></span>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>I</mi><mi>Q</mi></msub><annotation encoding="application/x-tex">I_{Q}</annotation></semantics></math>
+represents the converter’s current draw from the input source under
+zero-load conditions. Model the load at the output as an ideal current
+source with value
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>I</mi><mi>L</mi></msub><annotation encoding="application/x-tex">I_{L}</annotation></semantics></math>.
+Given the following specifications for a battery-operated
+microcontroller system:</em></em></p>
+<ul>
+<li><p><em><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>I</mi><mi>N</mi></mrow></msub><mo>=</mo><mn>3.3</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">V</mtext></mrow><annotation encoding="application/x-tex">V_{IN}  = 3.3\ \textrm{V}</annotation></semantics></math></em></p></li>
+<li><p><em><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>O</mi><mi>U</mi><mi>T</mi></mrow></msub><mo>=</mo><mn>1.8</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">V</mtext></mrow><annotation encoding="application/x-tex">V_{OUT} = 1.8\ \textrm{V}</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>L</mi></msub><mo>=</mo><mn>0</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">A</mtext></mrow><annotation encoding="application/x-tex">I_{L} = 0\ \textrm{A}</annotation></semantics></math></em></p></li>
+<li><p><em><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mtext mathvariant="normal">DC-DC</mtext></msub><mo>=</mo><mn>0.3</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">Ω</mi></mrow><annotation encoding="application/x-tex">R_{\textrm{DC-DC}}   = 0.3\ \Omega</annotation></semantics></math></em></p></li>
+<li><p><em>Minimum load current
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>L</mi></msub><mo>=</mo><mn>0.5</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">mA</mtext></mrow><annotation encoding="application/x-tex">I_{L} = 0.5\ \textrm{mA}</annotation></semantics></math></em></p></li>
+<li><p><em>Maximum load current
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>L</mi></msub><mo>=</mo><mn>600</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">mA</mtext></mrow><annotation encoding="application/x-tex">I_{L} = 600\ \textrm{mA}</annotation></semantics></math></em></p></li>
+</ul>
+<ol>
+<li><p><em>Suppose the quiescent current
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>Q</mi></msub><mo>≠</mo><mn>0</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">A</mtext></mrow><annotation encoding="application/x-tex">I_{Q} \neq 0\ \textrm{A}</annotation></semantics></math>.
+Derive formulas for the output power and efficiency in terms of the load
+current
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>I</mi><mi>L</mi></msub><annotation encoding="application/x-tex">I_{L}</annotation></semantics></math>
+and the other circuit variables.</em></p></li>
+<li><p><em>Using the formula you derived for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>η</mi><annotation encoding="application/x-tex">\eta</annotation></semantics></math>,
+plot the efficiency as a function of load current over the given load
+current range for the circuit parameters given above and assuming
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>Q</mi></msub><mo>=</mo><mn>0.5</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">mA</mtext></mrow><annotation encoding="application/x-tex">I_{Q} = 0.5\ \textrm{mA}</annotation></semantics></math>.</em></p></li>
+</ol>
+<div class="sol">
+
+</div>
+</div>
+</body>
+</html>
